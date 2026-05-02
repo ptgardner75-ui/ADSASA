@@ -1,195 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ADSASA | Audio Description Standards Accreditation and Services Authority</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADSASA | Cinematic Accessibility Standards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --bg: #0a0a0a;
+      --accent: #ffffff;
+      --text-dim: #a1a1a1;
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+
+    * {
       margin: 0;
-      font-family: "Inter", Arial, sans-serif;
-      background: #ffffff;
-      color: #111827;
-      line-height: 1.7;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--accent);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Background aesthetic */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #0a0a0a 100%);
+      z-index: -1;
     }
 
     .container {
-      max-width: 950px;
-      margin: auto;
-      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 24px;
     }
 
     header {
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 30px;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
     }
 
     h1 {
-      font-size: 34px;
-      margin: 0;
-      letter-spacing: -0.5px;
+      font-size: clamp(60px, 10vw, 110px);
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: 0.9;
+      margin-bottom: 20px;
+      background: linear-gradient(to bottom, #fff 40%, #444 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      color: #6b7280;
-      margin-top: 8px;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .mandate-card {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 2px;
+      margin: 60px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .mandate-text {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -1px;
     }
 
     h2 {
-      margin-top: 50px;
-      font-size: 20px;
-      color: #111827;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      margin-top: 80px;
+      border-left: 3px solid #fff;
+      padding-left: 15px;
     }
 
     p {
-      color: #374151;
+      font-size: 20px;
+      font-weight: 400;
+      color: #e5e5e5;
+      margin-bottom: 30px;
+      max-width: 750px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .grid-item {
+      padding: 30px;
+      background: var(--glass);
+      border-radius: 1px;
+    }
+
+    .grid-item strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .grid-item span {
+      color: var(--text-dim);
       font-size: 16px;
     }
 
-    .card {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 24px;
-      margin-top: 20px;
-      background: #fafafa;
+    .contact-section {
+      margin-top: 100px;
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    ul {
-      padding-left: 20px;
+    .email-link {
+      font-size: clamp(24px, 5vw, 42px);
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s;
     }
 
-    li {
-      margin-bottom: 8px;
-      color: #374151;
-    }
-
-    .mandate {
-      font-style: italic;
-      color: #111827;
-      font-weight: 500;
-      margin-top: 10px;
-    }
-
-    .highlight {
-      font-weight: 600;
-      color: #111827;
+    .email-link:hover {
+      opacity: 0.7;
     }
 
     footer {
-      margin-top: 70px;
-      padding-top: 20px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 13px;
-      color: #6b7280;
-      text-align: center;
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 100px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 4px 10px;
-      border: 1px solid #e5e7eb;
-      border-radius: 999px;
-      font-size: 12px;
-      color: #6b7280;
-      margin-top: 10px;
+    @media (max-width: 600px) {
+      .container { padding: 60px 20px; }
+      .mandate-card { padding: 25px; }
+      .mandate-text { font-size: 24px; }
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+  <div class="container">
+    <header>
+      <div class="subtitle">National Standards Body</div>
+      <h1>ADSASA</h1>
+    </header>
 
-  <header>
-    <h1>ADSASA</h1>
-    <div class="subtitle">
-      Audio Description Standards Accreditation and Services Authority
+    <div class="mandate-card">
+      <div class="mandate-text">“NOTHING ABOUT US WITHOUT US”</div>
     </div>
-    <div class="tag">Global Accessibility Standards for Audio Description</div>
-  </header>
 
-  <section>
-    <h2>Who We Are</h2>
-    <div class="card">
-      <p>
-        ADSASA is an independent standards and accreditation body for Audio Description (AD),
-        originating in South Africa and designed for global adoption and interoperability.
-      </p>
-      <p>
-        We define, evaluate, and certify Audio Description practices across broadcast,
-        streaming, film, cinema, advertising, and live media environments.
-      </p>
-    </div>
-  </section>
+    <section>
+      <h2>The Mission</h2>
+      <p>ADSASA is the definitive authority for Audio Description in South Africa[cite: 1]. We bridge the gap between world-class filmmaking and the 1.4 million visually impaired citizens currently excluded from our national narrative[cite: 1].</p>
+    </section>
 
-  <section>
-    <h2>Our Mandate</h2>
-    <div class="card">
-      <p class="highlight">“Nothing About Us Without Us”</p>
-      <p class="mandate">
-        Accessibility is a human right, not a service.
-        No Audio Description shall be considered compliant unless it has been shaped,
-        reviewed, and verified with the direct participation of blind and visually impaired users.
-      </p>
-    </div>
-  </section>
+    <section>
+      <h2>Compliance & Services</h2>
+      <div class="grid">
+        <div class="grid-item">
+          <strong>Regulatory Auditing</strong>
+          <span>Protecting broadcasters from R5 Million ICASA non-compliance penalties through rigorous certification[cite: 1].</span>
+        </div>
+        <div class="grid-item">
+          <strong>NADS Certification</strong>
+          <span>The "Gold Standard" in Audio Description, ensuring every frame is translated into verbal art[cite: 1].</span>
+        </div>
+        <div class="grid-item">
+          <strong>Community Verification</strong>
+          <span>Direct scripting and review by blind professionals—ensuring authenticity, not just automated noise[cite: 1].</span>
+        </div>
+        <div class="grid-item">
+          <strong>Strategic Implementation</strong>
+          <span>End-to-end guidance for streamers and production houses to meet global accessibility benchmarks[cite: 1].</span>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>What We Do</h2>
-    <div class="card">
-      <ul>
-        <li>Develop Audio Description standards and best practice frameworks</li>
-        <li>Certify compliant Audio Description production</li>
-        <li>Audit accessibility quality in media content</li>
-        <li>Support broadcasters, streaming platforms, and production houses</li>
-        <li>Promote inclusive and equitable media access globally</li>
-      </ul>
-    </div>
-  </section>
+    <section class="contact-section">
+      <p style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">For Inquiries and Audits</p>
+      <a href="mailto:info@adsasa.org.za" class="email-link">info@adsasa.org.za</a>
+    </section>
 
-  <section>
-    <h2>Standards Approach</h2>
-    <div class="card">
-      <p>
-        ADSASA standards combine technical precision, editorial clarity, and lived user experience.
-        All frameworks are designed to ensure consistency, intelligibility, and real-world usability.
-      </p>
-      <ul>
-        <li>Clear editorial hierarchy of visual information</li>
-        <li>Objective, present-tense descriptive language</li>
-        <li>Technical audio delivery requirements</li>
-        <li>Community-based verification and testing</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <h2>Global Vision</h2>
-    <div class="card">
-      <p>
-        While developed in South Africa, ADSASA is designed as a global accessibility framework.
-        It aligns with international best practices and is intended for adoption across all major media markets.
-      </p>
-      <p>
-        Our goal is simple: to make Audio Description consistent, verifiable, and meaningful worldwide.
-      </p>
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  © ADSASA — Audio Description Standards Accreditation and Services Authority  
-  <br/>
-  Standards. Accessibility. Inclusion.
-</footer>
+    <footer>
+      © 2026 ADSASA // Accessibility is a Human Right.
+    </footer>
+  </div>
 
 </body>
 </html>
